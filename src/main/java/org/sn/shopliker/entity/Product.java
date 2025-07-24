@@ -1,11 +1,11 @@
 package org.sn.shopliker.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
+@Table(name = "produit")
 public class Product {
     @Id
     @GeneratedValue
@@ -13,6 +13,7 @@ public class Product {
     @ManyToOne
     private Vendor vendor;
     @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
     private String name;
     private String description;
